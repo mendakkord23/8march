@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С 8 Марта ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+.flower {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #fff 0%, #ff69b4 60%);
+    border-radius: 50%;
+    animation: float 10s infinite linear;
+    opacity: 0.7;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh) rotate(0deg); }
+    to { transform: translateY(-10vh) rotate(360deg); }
+}
+</style>
+</head>
+
+<body>
+
+<h1>С 8 Марта 💐</h1>
+<p>Нажми в любом месте, чтобы включить музыку ❤️</p>
+
+<audio id="music">
+   <source src="https://drive.google.com/file/d/1qGy_clSftHwI2ID6iq4bIbqqSLj2tZ-C/view?usp=sharing" type="audio/mpeg">
+</audio>
+
+<script>
+document.body.addEventListener('click', function() {
+    let music = document.getElementById("music");
+    music.play();
+}, { once: true });
+
+// Generate floating flowers
+for (let i = 0; i < 25; i++) {
+    let flower = document.createElement("div");
+    flower.className = "flower";
+    flower.style.left = Math.random() * 100 + "vw";
+    flower.style.animationDuration = (6 + Math.random() * 6) + "s";
+    flower.style.opacity = Math.random();
+    document.body.appendChild(flower);
+}
+</script>
+
+</body>
+</html>
